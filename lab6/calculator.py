@@ -82,7 +82,7 @@ class CalculatorApp(App):
             self.history_visible = False
         else:
             self.history_layout.size_hint_x = 0.3
-            self history_visible = True
+            self.history_visible = True
     
     def update_history(self):
         self.history_grid.clear_widgets()
