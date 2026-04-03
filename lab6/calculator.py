@@ -10,7 +10,7 @@ class CalculatorApp(App):
         self.history = []
         self.history_visible = False
 
-        root = BoxLayout(orienattion="horizontal", padding=10, spacing=10)
+        root = BoxLayout(orientation="horizontal", padding=10, spacing=10)
         self.calc_layout = BoxLayout(orienattion="vertical", spacing=10, size_hint=(0.7, 1))
 
         self.input = TextInput(multiline=False, readonly=True, halign="right", font_size=40, size_hint=(1, 0.2))
