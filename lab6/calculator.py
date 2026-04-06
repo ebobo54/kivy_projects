@@ -61,7 +61,7 @@ class CalculatorApp(App):
     
     def add_char(self, char):
         if char in '+-*':
-            if self.input.text and self.input.text[-1] in '+-*':
+            if self.input.text and self.input.text[-1] in '+-*/':
                 self.input.text = self.input.text[:-1] + char
             elif self.input.text:
                 self.input.text += char
@@ -109,7 +109,7 @@ class CalculatorApp(App):
             self.toggle_history()
         if codepoint is not None and codepoint in 'cC':
             self.input.text=''
-        numpud_digits = {
+        numpad_digits = {
             256: '0',
             257: '1',
             258: '2',
