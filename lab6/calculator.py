@@ -16,7 +16,7 @@ class CalculatorApp(App):
         self.input = TextInput(multiline=False, readonly=True, halign="right", font_size=40, size_hint=(1, 0.2))
         self.calc_layout.add_widget(self.input)
 
-        control_layout = GridLayout(cols=4, spacing=10, size_hunt=(1, 0.1))
+        control_layout = GridLayout(cols=4, spacing=10, size_hint=(1, 0.1))
         for label in ('<-', 'C', 'M', '='):
             control_layout.add_widget(Button(text=label, font_size=28, on_press=self.on_control_press))
         self.calc_layout.add_widget(control_layout)
@@ -29,15 +29,15 @@ class CalculatorApp(App):
         button_layout = GridLayout(cols=4, spacing=10, size_hint=(1, 0.7))
         for row in buttons:
             for label in row:
-                button_layout.add_widget(Button(text=label, fornt_size=32, on_press=self.on_button_press))
+                button_layout.add_widget(Button(text=label, font_size=32, on_press=self.on_button_press))
         self.calc_layout.add_widget(button_layout)
 
         root.add_widget(self.calc_layout)
 
-        self.hitory_layout = BoxLayout(orientation="vertical", size_hint=(0, 1))
+        self.history_layout = BoxLayout(orientation="vertical", size_hint=(0, 1))
         self.history_scroll = ScrollView()
-        self.history_grid = GridLayout(cols=1, spacing=5, sieze_hint_y=None)
-        self.history_grid.bind(minimum_height=self.history_grid.seter('height'))
+        self.history_grid = GridLayout(cols=1, spacing=5, size_hint_y=None)
+        self.history_grid.bind(minimum_height=self.history_grid.setter('height'))
         self.history_scroll.add_widget(self.history_grid)
         self.history_layout.add_widget(self.history_scroll)
         root.add_widget(self.history_layout)
@@ -73,7 +73,7 @@ class CalculatorApp(App):
             self.history.append(f"{self.input.text} = {result}")
             self.input.text = result
             self.update_history()
-        except exception:
+        except Exception:
             self.input.text = "Ошибка"
         
     def toggle_history(self):
