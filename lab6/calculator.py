@@ -24,6 +24,7 @@ class CalculatorApp(App):
         buttons = [
             ['7', '8', '9', '*'],
             ['4', '5', '6', '/'],
+            ['1', '2', '3', '+'],
             ['.', '0', '00', '-']
         ]
         button_layout = GridLayout(cols=4, spacing=10, size_hint=(1, 0.7))
@@ -77,7 +78,7 @@ class CalculatorApp(App):
             self.input.text = "Ошибка"
         
     def toggle_history(self):
-        if self.history_visible:
+        if  self.history_visible:
             self.historylayout.size_hint_x = 0
             self.history_visible = False
         else:
@@ -120,8 +121,8 @@ class CalculatorApp(App):
             264: '8',
             265: '9'
         }
-        if key in nmpad_digits:
-            self.add_char(numpud_digits[key])   
+        if key in numpad_digits:
+            self.add_char(numpad_digits[key])   
         numpad_ops = {
             270: '+',
             269: '-',
