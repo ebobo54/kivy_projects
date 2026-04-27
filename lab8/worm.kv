@@ -1,7 +1,43 @@
 <Form>:
+    popup_label: popup_label
+    score_label: score_label
+
+  <Cell>:
+    canvas:
+        Color:
+            rgba: self.color
+
+        Rectangle:
+            size: self.graphical_size
+            pos: self.graphical_pos
+
+
+        Line:
+            width: 1.5
+            points: (0, 0), self.size
+
+        Line:
+            width: 1.5
+            points: (self.size[0], 0), (0, self.size[1])
+
+
+    Label:
+        id: score_label
+        text: "Score: " + str(self.parent.worm_len)
+        width: self.width
+
+    Label:
+        id: popup_label
+        width: self.width
+
+
+<Worm>:
+
 
 <Cell>:
     canvas:
+        Color:
+            rgba: self.color
         Rectangle:
             size: self.graphical_size
             pos: self.graphical_pos
