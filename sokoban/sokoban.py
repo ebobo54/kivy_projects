@@ -241,7 +241,7 @@ class Sokoban:
                 #print self.todo
                 self.auto = 1
                 return    
-        print 'not found!'
+        # print 'not found!'
 
 
     def mouse(self,x,y):

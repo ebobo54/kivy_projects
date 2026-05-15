@@ -120,7 +120,7 @@ class Sokoban:
             if self.level[self.man + h2] == '-' or self.level[self.man + h2] == '.':
             ## Move the box to the target point
                 move_box(self.level, self.man + h2)
-            ## ОЧИЩАЕМ старую позицию ящика (этого не хватало!)
+            ## ne ОЧИЩАЕМ старую позицию ящика (этого не хватало!)
                 move_floor(self.level, self.man + h)
             ## Move the player to the target point
                 move_man(self.level, self.man + h)
