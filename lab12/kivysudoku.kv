@@ -1,0 +1,101 @@
+#:kivy 2.1.0
+
+Sudoku:
+<Sudoku>:
+    canvas.before:
+        Color:
+            rgba: [0.1, 0.1, 0.1, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size    
+
+<BigGrid>:
+    cols: 3
+    size_hint: (None, 0.8)  
+    width: self.height  
+    spacing: 4  
+    padding: 8  
+    canvas.before:
+        Color:
+            rgba: [0, 0.25, 0.3, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size    
+
+<SmallGrid>:
+    cols: 3
+    spacing: 1
+    canvas.before:
+        Color:
+            rgba: [0, 0.25, 0.3, 1]  
+        Rectangle:
+            pos: self.pos
+            size: self.size    
+
+<MenuWidget>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.1
+        Rectangle:
+            size: self.size
+    Label:
+        text: "difficuty"
+        color: 0, 0.35, 0.4, 1
+        font_size: self.height * 0.8
+        font_name: "label_font.ttf"
+        pos_hint: { "center_x": .5, "center_y": 0.8}
+        size_hint: 0.4, 0.15
+    Button:
+        color: 0, 0.25, 0.3, 1
+        background_color: 0.95 ,0.95, 0.95, 0.8
+        font_size: self.height * 0.8
+        font_name: "label_font.ttf"
+        text: "easy"
+        pos_hint: { "center_x": .5, "center_y": 0.6}
+        size_hint: 0.4, 0.15
+        on_press: root.parent.easy_button()
+        background_normal: ""
+    Button:
+        color: 0, 0.25, 0.3, 1
+        background_color: 0.95 ,0.95, 0.95, 0.8
+        font_size: self.height * 0.8
+        font_name: "label_font.ttf"
+        text: "medium"
+        pos_hint: { "center_x": .5, "center_y": 0.4}
+        size_hint: 0.4, 0.15
+        on_press: root.parent.medium_button()
+        background_normal: ""
+    Button:
+        color: 0, 0.25, 0.3, 1
+        background_color: 0.95 ,0.95, 0.95, 0.8
+        font_size: self.height * 0.8
+        font_name: "label_font.ttf"
+        text: "hard"
+        pos_hint: { "center_x": .5, "center_y": 0.2}
+        size_hint: 0.4, 0.15
+        on_press: root.parent.hard_button()
+        background_normal: ""
+
+<MenuWidget2>:
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.1
+        Rectangle:
+            size: self.size
+    Label:
+        text: "congratulations!"
+        color: 0, 0.35, 0.4, 1
+        font_size: self.height * 0.6
+        font_name: "label_font.ttf"
+        pos_hint: {"center_x": .5, "center_y": 0.7}
+        size_hint: 0.4, 0.2
+    Button:
+        color: 0, 0.25, 0.3, 1
+        background_color: 0.95 ,0.95, 0.95, 0.8
+        font_size: self.height * 0.6
+        font_name: "label_font.ttf"
+        text: "new game"
+        pos_hint: {"center_x": .5, "center_y": 0.2}
+        size_hint: 0.6, 0.2
+        on_press: root.parent.new_game()
+        background_normal: ""
