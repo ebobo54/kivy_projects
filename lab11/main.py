@@ -33,7 +33,7 @@ class Board(Widget):
         self.pins = []
         for a in range(4):
             b = Pin()
-            b.on_press()                     # инициализация цвета
+            b.on_press()
             b.pos = (self.pos[0] + 70 + a * 60, self.pos[1] + 10)
             self.add_widget(b)
             self.pins.append(b)
@@ -49,7 +49,6 @@ class Board(Widget):
             a.a()
             self.add_widget(a)
 
-# KV-строка загружена ПОСЛЕ объявления класса Board
 Builder.load_string("""
 <Board>:
     canvas:
@@ -66,7 +65,7 @@ class MasterMind(Widget):
     def Test(self, inp, coder):
         out = []
         code = list(coder)
-        inp_copy = list(inp)       # работаем с копией, чтобы не испортить оригинал
+        inp_copy = list(inp)
         for a in range(4):
             if code[a] == inp_copy[a]:
                 out.append(2)
@@ -94,7 +93,6 @@ class MasterMind(Widget):
 
     def SpawnBoard(self, Npos):
         a = Board()
-        # Используем self.h как опорную точку (верхний край)
         a.pos = (0, self.h - 80 * Npos)
         a.Start()
         submit_btn = Button(text="Submit", size=(50, 50),
@@ -108,8 +106,7 @@ class MasterMind(Widget):
         self.attempts = 0
         self.b = []
         if self.h is None:
-            # Вычисляем один раз после получения реального размера окна
-            self.h = self.height - 10   # 10 – отступ сверху
+            self.h = self.height - 10
         self.code = tuple(r.randint(0, 5) for _ in range(4))
         self.SpawnBoard(0)
 
@@ -131,7 +128,7 @@ class MasterMind(Widget):
 class MasterMindApp(App):
     def build(self):
         game = MasterMind()
-        # Запускаем настройку после того, как окно примет окончательный размер
+
         Clock.schedule_once(game.Setup, 0)
         return game
 
